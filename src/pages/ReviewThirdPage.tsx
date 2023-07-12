@@ -25,14 +25,13 @@ const Container = styled.div`
 export default function ReviewThirdPage() {
   const location = useLocation();
 
-  const link = `${location.pathname}/complete`;
+  const link = `${location.pathname}/`;
 
   return (
     <Section>
       <Container>
-        <Heading step="3" strong="아이디어에" text="대해 간략하게 설명해주세요" description="자유롭게 원하는 키워드를 선택해 특허 아이디어에 대해 간단하게 소개해주세요 :)" />
+        <Heading step="3" strong="회신받을 사람" text="에 대한 정보를 입력해주세요." description="거의 다 왔어요 :)" />
 
-        <MoveButton link={link} disabled />
       </Container>
     </Section>
   );

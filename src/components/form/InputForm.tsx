@@ -1,8 +1,17 @@
 import { styled } from 'styled-components';
 import { useState } from 'react';
-import Keyword from './Keyword';
-import KEYWORD, { keyword } from '../../constants/keyword';
-import Input from './Input';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { useForm } from 'react-hook-form';
+import { useLocation, useNavigate } from 'react-router-dom';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { useSessionStorage } from 'usehooks-ts';
+import MoveButton from '../common/MoveButton';
+import LeftSideBar from './LeftSideBar';
+import RightInputForm from './RightInputForm';
+
+const Container = styled.form`
+  padding-bottom: 2rem;
+`;
 
 const FormContainer = styled.div`
   display: flex;
@@ -11,59 +20,26 @@ const FormContainer = styled.div`
   margin-top: 1.4rem;
   margin-bottom: 2.8rem;
 `;
-const LeftSideBar = styled.div`
-  display: flex;
-  width: 14rem;
-  height: 32rem;
-  background-color: #fff;
-  flex-direction: column;
-  border-radius: 8px;
-  margin-right: .8rem;;
-  `;
-const RightInputForm = styled.form`
-  display: flex;
-  width: 46rem;
-  height: 32rem;
-  background-color: #fff;
-  border-radius: 8px;
-  flex-direction: column;
-  align-items: center;
-  overflow-y: scroll;
-
-  &::-webkit-scrollbar{
-    width: .4rem;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    height: 30%;
-    background: #e7eaf0;
-    border-radius: 10px;
-  }
-
-  &::-webkit-scrollbar-track{
-    background: #fff;
-  }
-`;
 
 export default function InputForm() {
+  const location = useLocation();
+  const link = `${location.pathname}/complete`;
+  const { handleSubmit, control } = useForm();
   const [keywordList, setKeywordList] = useState(['명칭', '특징']);
+  // const sessionStograge = useSessionStorage('review-input', {});
+  const navigate = useNavigate();
+
+  const onSubmit = (data: any) => {
+    console.log(data);
+    navigate(`${link}`);
+  };
   return (
-    <FormContainer>
-      <LeftSideBar>
-        {Object.values(KEYWORD).map((data: keyword) => (
-          <Keyword
-            key={data.name}
-            data={data}
-            keywordList={keywordList}
-            setKeywordList={setKeywordList}
-          />
-        ))}
-      </LeftSideBar>
-      <RightInputForm>
-        {keywordList.map((keywordName: string) => (
-          <Input key={keywordName} keywordName={keywordName} />
-        ))}
-      </RightInputForm>
-    </FormContainer>
+    <Container onSubmit={handleSubmit(onSubmit)}>
+      <FormContainer>
+        <LeftSideBar keywordList={keywordList} setKeywordList={setKeywordList} />
+        <RightInputForm keywordList={keywordList} control={control} />
+      </FormContainer>
+      <MoveButton type="submit" link={link} disabled={false} />
+    </Container>
   );
 }

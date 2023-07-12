@@ -36,7 +36,7 @@ export default function ReviewFirstPage() {
       <Container>
         <Heading step="1" strong="어떤 분야" text="의 아이디어인가요?" description="질문이 있을때는 특허의 신을 불러 도움을 요청하세요!" />
         <Category category={category} setCategory={setCategory} />
-        <MoveButton link={link} disabled={category === ''} />
+        <MoveButton type="button" link={link} disabled={category === ''} />
       </Container>
     </Section>
   );

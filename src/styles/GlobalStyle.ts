@@ -49,6 +49,9 @@ const GlobalStyle = createGlobalStyle`
     border: none;
     padding: 0;
   }
+  span, input, textarea {
+    font-family: 'Pretendard';
+  }
 
   :lang(ko) {
     h1, h2, h3 {

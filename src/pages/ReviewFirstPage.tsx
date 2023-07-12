@@ -20,7 +20,7 @@ const Container = styled.div`
   margin-inline: auto;
   width: 100%;
   height: 100%;
-  padding-top: 5.7rem;
+  padding-top: 3.8rem;
   position: relative;
 `;
 

@@ -7,7 +7,6 @@ const HeadingContainer = styled.div`
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
-  margin-bottom: 3rem;
 
   div:nth-of-type(1) {
     display: flex;

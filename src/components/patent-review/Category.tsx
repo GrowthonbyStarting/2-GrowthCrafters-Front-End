@@ -5,6 +5,9 @@ const CategoryContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  margin-top: 2rem;
+  margin-bottom: 20rem;
+  flex-wrap: wrap;
 `;
 
 export default function Category({ category, setCategory }:{

@@ -33,7 +33,7 @@ export default function UserInfo({ control, userInfoObj }: {
             name={name}
             render={({ field: { onChange, value } }) => (
               <Input
-                name={inputData.koreanName}
+                data={inputData}
                 placeholder={inputData.placeholder}
                 value={value}
                 onChange={onChange}

@@ -25,15 +25,15 @@ export default function InputForm() {
   const { handleSubmit, control } = useForm();
   const [keywordList, setKeywordList] = useState(['명칭', '특징']);
   const [reviewInput, setReviewInput] = useSessionStorage('review-input', {
-    q1: '', q2: '', q3: '', q4: '', q5: '',
+    명칭: '', 특징: '', 차별점: '', 효과: '', 기술: '',
   });
   const navigate = useNavigate();
 
   const onSubmit = (data: any) => {
-    console.log(data);
     setReviewInput(data);
-    navigate('/patent-review/complete');
+    navigate('/patent-review/confirm');
   };
+
   return (
     <Container onSubmit={handleSubmit(onSubmit)}>
       <FormContainer>

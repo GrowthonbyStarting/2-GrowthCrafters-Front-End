@@ -29,7 +29,7 @@ export default function ReviewSecondPage() {
   return (
     <Section>
       <Container>
-        <Heading step="2" strong="어떤 분야" text="의 아이디어인가요?" description="대략적인 큰 카테고리를 선택 해주세요!" />
+        <Heading step="STEP2" strong="어떤 분야" text="의 아이디어인가요?" description="대략적인 큰 카테고리를 선택 해주세요!" />
         <Category category={selectedCategory} setCategory={setSelectedCategory} />
         <MoveButton type="button" link={link} disabled={selectedCategory === ''} />
       </Container>

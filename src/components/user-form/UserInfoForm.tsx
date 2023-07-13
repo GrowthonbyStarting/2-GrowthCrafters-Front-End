@@ -19,11 +19,10 @@ export default function UserInfoForm() {
 
   const { handleSubmit, control } = useForm();
   const [userInfoObj, setUserInfoObj] = useSessionStorage('user-info', {
-    name: '', email: '', phone: '',
+    이름: '', 이메일: '', 전화번호: '',
   });
 
   const onSubmit = (data: any) => {
-    console.log(data);
     setUserInfoObj(data);
     navigate(`${link}`);
   };

@@ -1,5 +1,5 @@
 import { css, styled } from 'styled-components';
-import KEYWORD from '../../constants/keyword';
+import { KEYWORD } from '../../constants/keyword';
 
 type Props = {
   toggle: boolean;
@@ -42,7 +42,7 @@ export default function Title({ keywordName, toggle, setToggle }: {
   toggle: boolean;
   setToggle: (value: boolean) => void;
 }) {
-  const keywordData = KEYWORD[`${keywordName}`];
+  // const keywordData = KEYWORD[`${keywordName}`];
   const onClickToggle = () => {
     if (toggle) {
       setToggle(false);
@@ -50,9 +50,10 @@ export default function Title({ keywordName, toggle, setToggle }: {
     }
     setToggle(true);
   };
+
   return (
     <TitleContainer toggle={toggle}>
-      <span>{keywordData.title}</span>
+      <span>{keywordName}</span>
       <button type="button" onClick={() => onClickToggle()}>
         <img src={toggle ? '/images/arrow-down.svg' : '/images/arrow-up.svg'} alt="arrow" />
       </button>

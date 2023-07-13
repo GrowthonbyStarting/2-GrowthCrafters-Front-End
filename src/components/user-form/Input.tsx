@@ -1,4 +1,5 @@
 import { css, styled } from 'styled-components';
+import { Property } from '../../constants/userInfoForm';
 
 type ContainerProps = {
   active: boolean;
@@ -40,19 +41,27 @@ const Container = styled.div<ContainerProps>`
 `;
 
 export default function Input({
-  name, placeholder, value, onChange,
+  data, placeholder, value, onChange,
 } : {
-  name: string;
+  data: Property;
   placeholder: string;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLElement>) => void;
 }) {
-  const active = name === '전화번호';
+  const active = data.koreanName === '전화번호';
+
   return (
     <Container active={active}>
       <div>
-        {name}
-        <input required value={value} onChange={onChange} placeholder={placeholder} />
+        {data.koreanName}
+        <input
+          required
+          type={data.type}
+          value={value}
+          pattern={data.type === 'tel' ? '[0-9]{3}-[0-9]{4}-[0-9]{4}' : '.*'}
+          onChange={onChange}
+          placeholder={placeholder}
+        />
       </div>
     </Container>
   );

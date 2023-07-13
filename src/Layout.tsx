@@ -14,7 +14,7 @@ export default function Layout() {
     <Container>
       <Header />
       <Outlet />
-      <Footer />
+      {/* <Footer /> */}
     </Container>
   );
 }

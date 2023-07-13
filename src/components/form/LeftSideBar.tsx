@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import KEYWORD, { keyword } from '../../constants/keyword';
+import { KEYWORD, keyword } from '../../constants/keyword';
 
 import Keyword from './Keyword';
 

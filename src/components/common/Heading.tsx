@@ -43,7 +43,6 @@ export default function Heading({
   return (
     <HeadingContainer>
       <div>
-        STEP
         {step}
       </div>
       <div>

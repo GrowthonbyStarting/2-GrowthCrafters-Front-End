@@ -2,7 +2,7 @@
 import { Controller } from 'react-hook-form';
 import { styled } from 'styled-components';
 import Input from './Input';
-import KEYWORD from '../../constants/keyword';
+import { KEYWORD } from '../../constants/keyword';
 import { inputForm } from '../../types/inputForm';
 
 const Container = styled.div`
@@ -35,7 +35,7 @@ export default function RightInputForm({ reviewInput, keywordList, control }: {
           key={keywordName}
           control={control}
           defaultValue={reviewInputArr[index]}
-          name={KEYWORD[keywordName].id}
+          name={keywordName}
           render={({ field: { onChange, value } }) => (
             <Input keywordName={keywordName} onChange={onChange} value={value} />
           )}

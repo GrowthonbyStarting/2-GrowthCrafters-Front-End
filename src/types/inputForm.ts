@@ -1,13 +1,13 @@
 export interface inputForm {
-  q1: string;
-  q2: string;
-  q3?: string;
-  q4?: string;
-  q5?: string;
+  명칭: string;
+  특징: string;
+  차별점?: string;
+  효과?: string;
+  기술?: string;
 }
 
 export interface userInfo {
-  name: string;
-  phone: string;
-  email: string;
+  이름: string;
+  이메일: string;
+  전화번호: string;
 }

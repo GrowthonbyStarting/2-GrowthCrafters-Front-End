@@ -25,7 +25,7 @@ export default function ReviewFirstPage() {
   return (
     <Section>
       <Container>
-        <Heading step="1" strong="회신받을 사람" text="에 대한 정보를 입력해주세요." description="이름, 이메일, 전화번호만 적어주시면 돼요!" />
+        <Heading step="STEP1" strong="회신받을 사람" text="에 대한 정보를 입력해주세요." description="이름, 이메일, 전화번호만 적어주시면 돼요!" />
         <UserInfoForm />
       </Container>
     </Section>

@@ -13,7 +13,7 @@ const routes = [
       { path: '/patent-review', element: <ReviewFirstPage /> },
       { path: '/patent-review/category', element: <ReviewSecondPage /> },
       { path: '/patent-review/form', element: <ReviewThirdPage /> },
-      { path: '/patent-review/complete', element: <ReviewLastPage /> },
+      { path: '/patent-review/confirm', element: <ReviewLastPage /> },
     ],
   },
 ];

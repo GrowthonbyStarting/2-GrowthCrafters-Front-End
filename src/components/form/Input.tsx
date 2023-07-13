@@ -89,7 +89,7 @@ export default function Input({ keywordName, onChange, value }: {
         {(toggle && keywordName !== '파일 첨부') && (
           <textarea
             placeholder={keywordData.placeholder}
-            onChange={(e) => onChange({ target: { value: e.target.files[0], name: keywordName } })}
+            onChange={onChange}
             value={value}
             required={keywordData.required}
             // onInvalid={(e) => handleInvalid(e)}

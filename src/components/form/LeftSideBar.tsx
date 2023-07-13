@@ -6,7 +6,9 @@ import Keyword from './Keyword';
 
 const Container = styled.div`
   display: flex;
+  height: 100%;
   flex-direction: column;
+  box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.05);
 
    span:last-child{
     margin-top: .8rem;

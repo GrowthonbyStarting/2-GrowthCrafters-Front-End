@@ -1,6 +1,7 @@
 import { css, styled } from 'styled-components';
-import { FormEvent, useState } from 'react';
+import { useState } from 'react';
 import KEYWORD from '../../constants/keyword';
+import Title from './Title';
 
 type Props = {
   toggle: boolean;
@@ -13,38 +14,6 @@ const Container = styled.div<Props>`
   ${(props) => !props.toggle && css`
     border: none;
   `}
-`;
-
-const TitleContainer = styled.div<Props>`
-  width: 100%;
-  padding: 0rem 1.7rem 1rem 1.7rem;
-  justify-content: space-between;
-  align-items: center;
-  display: flex;
-  border-bottom: .6px solid #E7EAF0;
-  
-  ${(props) => props.toggle && css`
-    border-bottom: none;
-  `}
-
-  span {
-    display: flex;
-    font-size: 1.6rem;
-    font-weight: bold;
-  }
-
-  button {
-    cursor: pointer;
-    display: flex;
-    justify-content: flex-end;
-    width: 2.4rem;
-    height: 2.4rem;
-
-    img {
-      width: 100%;
-      height: 100%;
-    }
-  }
 `;
 
 const InputContainer = styled.div`
@@ -100,48 +69,45 @@ const InputContainer = styled.div`
 
 export default function Input({ keywordName, onChange, value }: {
   keywordName: string;
-  value: string;
+  value: any;
   onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void ;
 }) {
   const keywordData = KEYWORD[`${keywordName}`];
   const [toggle, setToggle] = useState(true);
-  const onClickToggle = () => {
-    if (toggle) {
-      setToggle(false);
-      return;
-    }
-    setToggle(true);
-  };
 
-  const handleInvalid = (e:FormEvent<HTMLTextAreaElement>) => {
-    // e.preventDefault();
-  };
+  // const [submitedFile, setSubmitedFile] = useState('');
 
+  // const handleFileChange = (e: any) => {
+  //   const fileName = e.target.value;
+  //   setSubmitedFile(fileName.split('\\').pop());
+  //   console.log(e.target.value);
+  // };
   return (
     <Container toggle={toggle}>
-      <TitleContainer toggle={toggle}>
-        <span>{keywordData.title}</span>
-        <button type="button" onClick={() => onClickToggle()}>
-          <img src={toggle ? '/images/arrow-down.svg' : '/images/arrow-up.svg'} alt="arrow" />
-        </button>
-      </TitleContainer>
+      <Title keywordName={keywordName} toggle={toggle} setToggle={setToggle} />
       <InputContainer>
         {(toggle && keywordName !== '파일 첨부') && (
           <textarea
             placeholder={keywordData.placeholder}
-            onChange={onChange}
+            onChange={(e) => onChange({ target: { value: e.target.files[0], name: keywordName } })}
             value={value}
             required={keywordData.required}
-            onInvalid={(e) => handleInvalid(e)}
+            // onInvalid={(e) => handleInvalid(e)}
           />
         )}
-        {(toggle && keywordName === '파일 첨부') && (
+        {/* {(toggle && keywordName === '파일 첨부') && (
           <label htmlFor="file-upload">
             <img src="/images/file-upload.svg" alt="file-upload" />
-            <span>{keywordData.placeholder}</span>
-            <input type="file" id="file-upload" value={value} multiple />
+            <span>{submitedFile === '' ? keywordData.placeholder : submitedFile}</span>
+            <input
+              type="file"
+              id="file-upload"
+              // eslint-disable-next-line max-len
+              onChange={(e) => handleFileChange(e)}
+              multiple
+            />
           </label>
-        )}
+        )} */}
       </InputContainer>
     </Container>
   );

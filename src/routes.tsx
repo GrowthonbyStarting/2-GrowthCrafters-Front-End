@@ -10,8 +10,9 @@ const routes = [
     children: [
       { path: '/', element: <HomePage /> },
       { path: '/patent-review', element: <ReviewFirstPage /> },
-      { path: '/patent-review/:category', element: <ReviewSecondPage /> },
-      { path: '/patent-review/:category/complete', element: <ReviewThirdPage /> },
+      { path: '/patent-review/category', element: <ReviewSecondPage /> },
+      { path: '/patent-review/form', element: <ReviewThirdPage /> },
+      // { path: '/patent-review/complete', element: <ReviewLastPage /> },
     ],
   },
 ];

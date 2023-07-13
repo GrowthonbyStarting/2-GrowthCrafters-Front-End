@@ -2,7 +2,7 @@ import { styled } from 'styled-components';
 import { useState } from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { useForm } from 'react-hook-form';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { useSessionStorage } from 'usehooks-ts';
 import MoveButton from '../common/MoveButton';
@@ -22,24 +22,25 @@ const FormContainer = styled.div`
 `;
 
 export default function InputForm() {
-  const location = useLocation();
-  const link = `${location.pathname}/complete`;
   const { handleSubmit, control } = useForm();
   const [keywordList, setKeywordList] = useState(['명칭', '특징']);
-  // const sessionStograge = useSessionStorage('review-input', {});
+  const [reviewInput, setReviewInput] = useSessionStorage('review-input', {
+    q1: '', q2: '', q3: '', q4: '', q5: '',
+  });
   const navigate = useNavigate();
 
   const onSubmit = (data: any) => {
     console.log(data);
-    navigate(`${link}`);
+    setReviewInput(data);
+    navigate('/patent-review/complete');
   };
   return (
     <Container onSubmit={handleSubmit(onSubmit)}>
       <FormContainer>
         <LeftSideBar keywordList={keywordList} setKeywordList={setKeywordList} />
-        <RightInputForm keywordList={keywordList} control={control} />
+        <RightInputForm reviewInput={reviewInput} keywordList={keywordList} control={control} />
       </FormContainer>
-      <MoveButton type="submit" link={link} disabled={false} />
+      <MoveButton type="submit" link="" disabled={false} />
     </Container>
   );
 }

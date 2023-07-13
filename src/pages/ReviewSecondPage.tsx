@@ -1,11 +1,13 @@
 import { styled } from 'styled-components';
+import { useState } from 'react';
+import { useSessionStorage } from 'usehooks-ts';
 import Heading from '../components/common/Heading';
-import InputForm from '../components/form/InputForm';
+import MoveButton from '../components/common/MoveButton';
+import Category from '../components/patent-review/Category';
 
 const Section = styled.section`
   width: 100%;
-  height: 100%;
-  min-height: 540px;
+  min-height: 92vh;
   background-image: url('/images/bg-patent-review.png');
   background-size: cover;
   background-position: center;
@@ -22,11 +24,14 @@ const Container = styled.div`
 `;
 
 export default function ReviewSecondPage() {
+  const [selectedCategory, setSelectedCategory] = useSessionStorage('category', '');
+  const link = '/patent-review/form';
   return (
     <Section>
       <Container>
-        <Heading step="2" strong="아이디어" text="에 대해 간략하게 설명해주세요" description="자유롭게 원하는 키워드를 선택해 특허 아이디어에 대해 간단하게 소개해주세요 :)" />
-        <InputForm />
+        <Heading step="2" strong="어떤 분야" text="의 아이디어인가요?" description="대략적인 큰 카테고리를 선택 해주세요!" />
+        <Category category={selectedCategory} setCategory={setSelectedCategory} />
+        <MoveButton type="button" link={link} disabled={selectedCategory === ''} />
       </Container>
     </Section>
   );

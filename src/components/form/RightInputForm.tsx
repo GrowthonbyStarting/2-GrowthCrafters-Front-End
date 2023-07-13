@@ -3,6 +3,7 @@ import { Controller } from 'react-hook-form';
 import { styled } from 'styled-components';
 import Input from './Input';
 import KEYWORD from '../../constants/keyword';
+import { inputForm } from '../../types/inputForm';
 
 const Container = styled.div`
   display: flex;
@@ -14,38 +15,27 @@ const Container = styled.div`
   border-radius: 8px;
   flex-direction: column;
   align-items: center;
-  /* overflow-y: scroll;
-
-  &::-webkit-scrollbar{
-    width: .4rem;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    height: 30%;
-    background: #e7eaf0;
-    border-radius: 10px;
-  }
-
-  &::-webkit-scrollbar-track{
-    background: #fff;
-  } */
+  box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.05);
 
   div:last-child {
     border: none;
   }
 `;
 
-export default function RightInputForm({ keywordList, control }: {
+export default function RightInputForm({ reviewInput, keywordList, control }: {
+  reviewInput: inputForm;
   keywordList: string[];
   control: any;
 }) {
+  const reviewInputArr = Object.values(reviewInput);
   return (
     <Container>
-      {keywordList.map((keywordName: string) => (
+      {keywordList.map((keywordName: string, index) => (
         <Controller
           key={keywordName}
           control={control}
-          name={KEYWORD[keywordName].enName}
+          defaultValue={reviewInputArr[index]}
+          name={KEYWORD[keywordName].id}
           render={({ field: { onChange, value } }) => (
             <Input keywordName={keywordName} onChange={onChange} value={value} />
           )}

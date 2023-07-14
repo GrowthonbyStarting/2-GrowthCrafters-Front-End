@@ -1,6 +1,7 @@
 import { styled } from 'styled-components';
 import { useState } from 'react';
 import { useSetRecoilState } from 'recoil';
+import { useNavigate } from 'react-router-dom';
 import Heading from '../components/common/Heading';
 import Title from '../components/form/Title';
 import FileInput from '../components/confirm/FileInput';
@@ -130,6 +131,7 @@ export default function ReviewLastPage() {
     setModal(false);
   };
 
+  // eslint-disable-next-line consistent-return
   return (
     <Section>
       <Container>

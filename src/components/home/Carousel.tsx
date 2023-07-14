@@ -1,0 +1,80 @@
+import { styled } from 'styled-components';
+
+const Container = styled.div`
+  width: 100%;
+  height: 21rem;
+  display: flex;
+  margin-top: 5.7rem;
+  justify-content: center;
+
+  a {
+    width: 18rem;
+    height: 20rem;
+    text-decoration: none;
+    position: relative;
+    margin-right: 1.6rem;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    span {
+      strong{
+        display: block;
+        font-size: 1.5rem;
+      }
+      display: block;
+      position: absolute;
+      left: 6rem;
+      bottom: 2rem;
+      font-weight: 700;
+      text-align: center;
+      line-height: 1rem;
+      font-size: 1.2rem;
+      color: #fff;
+
+      strong {
+        
+      }
+    }
+  }
+`;
+
+export default function Carousel() {
+  return (
+    <Container>
+      <a href="http://ecmpatent.com/partnersinfo/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=1633131&t=board">
+        <img src="/images/person1.png" alt="person" />
+        <span>
+          <strong>경력 15년</strong>
+          <br />
+          김시우 변리사
+        </span>
+      </a>
+      <a href="http://ecmpatent.com/partnersinfo/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=1633134&t=board">
+        <img src="/images/person2.png" alt="person" />
+        <span>
+          <strong>경력 15년</strong>
+          <br />
+          김태균 변리사
+        </span>
+      </a>
+      <a href="http://ecmpatent.com/partnersinfo/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=1633140&t=board">
+        <img src="/images/person3.png" alt="person" />
+        <span>
+          <strong>경력 15년</strong>
+          <br />
+          이은심 변리사
+        </span>
+      </a>
+      <a href="http://ecmpatent.com/partnersinfo/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=3091554&t=board">
+        <img src="/images/person4.png" alt="person" />
+        <span>
+          <strong>경력 15년</strong>
+          <br />
+          최지영 변리사
+        </span>
+      </a>
+    </Container>
+  );
+}

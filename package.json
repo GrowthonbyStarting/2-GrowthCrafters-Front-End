@@ -4,9 +4,9 @@
   "description": "그로스톤 특허의 신 기업과제 프로젝트",
   "source": "index.html",
   "scripts": {
-    "start": "parcel --port 8000",
+    "start": "parcel --port 3306",
     "build": "parcel build",
-    "serve": "servor dist index.html 8000 --reload",
+    "serve": "servor dist index.html 3306 --reload",
     "check": "tsc --noEmit",
     "lint": "eslint --fix --ext .js,.jsx,.ts,.tsx ",
     "test": "jest"
@@ -25,6 +25,7 @@
     "@types/react-dom": "^18.2.6",
     "@typescript-eslint/eslint-plugin": "^5.61.0",
     "@typescript-eslint/parser": "^5.61.0",
+    "buffer": "^6.0.3",
     "eslint": "^8.44.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-import": "^2.27.5",
@@ -46,6 +47,7 @@
     "recoil": "^0.7.7",
     "styled-components": "^6.0.3",
     "styled-reset": "^4.5.1",
-    "usehooks-ts": "^2.9.1"
+    "usehooks-ts": "^2.9.1",
+    "whatwg-fetch": "^3.6.2"
   }
 }

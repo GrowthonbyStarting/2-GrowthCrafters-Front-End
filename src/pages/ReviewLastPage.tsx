@@ -1,11 +1,13 @@
-import { css, styled } from 'styled-components';
+import { styled } from 'styled-components';
 import { useState } from 'react';
+import { useSetRecoilState } from 'recoil';
 import Heading from '../components/common/Heading';
 import Title from '../components/form/Title';
 import FileInput from '../components/confirm/FileInput';
 import ConfirmForm from '../components/confirm/ConfirmForm';
 import MoveButton from '../components/common/MoveButton';
 import { FILE_VALUE } from '../constants/keyword';
+import { reviewFileState } from '../recoil/atom';
 
 const Section = styled.section`
   width: 100%;
@@ -116,7 +118,7 @@ const StyledDiv = styled.div`
 
 export default function ReviewLastPage() {
   const [submitedFileName, setSubmitedFileName] = useState('');
-  const [file, setFile] = useState({});
+  const setReviewFile = useSetRecoilState(reviewFileState);
   const [modal, setModal] = useState(false);
   const [toggle, setToggle] = useState(true);
 
@@ -140,7 +142,7 @@ export default function ReviewLastPage() {
               {toggle && (
                 <FileInput
                   submitedFileName={submitedFileName}
-                  setFile={setFile}
+                  setReviewFile={setReviewFile}
                   setSubmitedFileName={setSubmitedFileName}
                 />
               )}

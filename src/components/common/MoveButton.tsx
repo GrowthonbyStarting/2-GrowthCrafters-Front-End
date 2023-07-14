@@ -1,5 +1,8 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import { styled } from 'styled-components';
+import { useRecoilState, useSetRecoilState } from 'recoil';
+import { reviewFileState, reviewSubmitState } from '../../recoil/atom';
+// import useFetchForm from '../../hook/useFetchForm';
 
 const Container = styled.div`
   display: flex;
@@ -55,8 +58,16 @@ export default function MoveButton({ link, disabled, type }: {
 }) {
   const location = useLocation();
   const navigate = useNavigate();
+  const setSubmited = useSetRecoilState(reviewSubmitState);
+  const reviewFile = useRecoilState(reviewFileState);
 
   const onClickNextButton = () => {
+    if (location.pathname.includes('confirm')) {
+      setSubmited(true);
+      // const message = useFetchForm(reviewFile);
+      // console.log(message);
+      sessionStorage.clear();
+    }
     if (type === 'button') {
       navigate(`${link}`);
     }
@@ -73,7 +84,7 @@ export default function MoveButton({ link, disabled, type }: {
         </PrevButton>
       )}
       <NextButton type={type} onClick={() => onClickNextButton()} disabled={disabled}>
-        <span>다음으로</span>
+        <span>{location.pathname.includes('confirm') ? '제출하기' : '다음으로'}</span>
         <svg xmlns="http://www.w3.org/2000/svg" width="11" height="10" viewBox="0 0 11 10" fill="none">
           <path d="M6.07255 0.932312L9.82255 4.68231M9.82255 4.68231L6.07255 8.43231M9.82255 4.68231L1.17745 4.68231" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>

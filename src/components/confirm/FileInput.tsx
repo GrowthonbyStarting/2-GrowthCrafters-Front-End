@@ -1,8 +1,8 @@
 import { FILE_PLACEHOLDER } from '../../constants/keyword';
 
-export default function FileInput({ submitedFileName, setFile, setSubmitedFileName }:{
+export default function FileInput({ submitedFileName, setReviewFile, setSubmitedFileName }:{
   submitedFileName: string;
-  setFile: (value) => void;
+  setReviewFile: (value) => void;
   setSubmitedFileName: (value: string) => void;
 }) {
   const handleFileChange = (e: any) => {
@@ -12,7 +12,7 @@ export default function FileInput({ submitedFileName, setFile, setSubmitedFileNa
     if (e.target.files) {
       const uploadFile = e.target.files[0];
       formData.append('file', uploadFile);
-      setFile(uploadFile);
+      setReviewFile(uploadFile);
     }
     const fileName = e.target.value;
     setSubmitedFileName(fileName.split('\\').pop());

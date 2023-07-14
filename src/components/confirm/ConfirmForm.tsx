@@ -1,6 +1,7 @@
 import { styled } from 'styled-components';
 import ReadOnlyInput from '../user-form/ReadOnlyInput';
 import CATEGORY from '../../constants/category';
+import { Category } from '../../types/SubmitReviewForm';
 
 const ConfirmFormContainer = styled.div`
   display: flex;
@@ -65,9 +66,9 @@ const Button = styled.button`
 export default function ConfirmForm({ handleConfirm }:{
   handleConfirm: () => void;
 }) {
-  const reviewInput = JSON.parse(window.sessionStorage.getItem('review-input')!);
-  const userInfo = JSON.parse(window.sessionStorage.getItem('user-info')!);
-  const category = JSON.parse(window.sessionStorage.getItem('category')!).split('.').shift();
+  const reviewInput = JSON.parse(window.sessionStorage.getItem('review-input') || '');
+  const userInfo = JSON.parse(window.sessionStorage.getItem('user-info') || '');
+  const category: Category = JSON.parse(window.sessionStorage.getItem('category') || '').split('.').shift();
   const userInfoKey = Object.keys(userInfo);
   const reviewInputKey = Object.keys(reviewInput);
   return (
@@ -82,7 +83,7 @@ export default function ConfirmForm({ handleConfirm }:{
           <ReadOnlyInput key={key} title={key} value={userInfo[key]} />
         ))}
         <h2>2. 아이디어 분야</h2>
-        <ReadOnlyInput title="" value={CATEGORY[category]} />
+        <ReadOnlyInput title="" value={CATEGORY[category] || ''} />
         <h2>3. 아이디어에 대한 간략한 설명</h2>
         {reviewInputKey.map((key) => (
           <ReadOnlyInput key={key} title={key} value={reviewInput[key]} />

@@ -6,7 +6,7 @@ const Container = styled.div`
   background-size: cover;
   background-position: top;
 
-  height: 62rem;
+  height: 187rem;
   width: 100%;
 
   div {
@@ -16,7 +16,7 @@ const Container = styled.div`
     background-repeat: repeat-x;
     background-size: cover;
     width: 100%;
-    height: 187rem;
+    height: 100%;
 
     img {
       display: flex;
@@ -24,7 +24,6 @@ const Container = styled.div`
       height: 174rem;
     }
   }
-
 `;
 
 export default function Intro() {

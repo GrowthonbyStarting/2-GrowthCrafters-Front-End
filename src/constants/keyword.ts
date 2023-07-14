@@ -44,4 +44,12 @@ export const KEYWORD: Record<string, keyword> = {
   },
 };
 
+export const FILE_VALUE:keyword = {
+  name: '파일 첨부',
+  id: 'formData',
+  required: false,
+  title: '파일첨부',
+  placeholder: '특허의 구성 및 효과를 구체적으로 설명할 자료가 있는 경우 파일을 첨부해주세요!',
+};
+
 export const FILE_PLACEHOLDER = '특허의 구성 및 효과를 구체적으로 설명할 자료가 있는 경우 파일을 첨부해주세요!';

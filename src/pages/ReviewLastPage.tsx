@@ -5,16 +5,25 @@ import Title from '../components/form/Title';
 import FileInput from '../components/confirm/FileInput';
 import ConfirmForm from '../components/confirm/ConfirmForm';
 import MoveButton from '../components/common/MoveButton';
+import { FILE_VALUE } from '../constants/keyword';
 
 const Section = styled.section`
   width: 100%;
-  min-height: 92vh;
+  min-height: 93vh;
   background-image: url('/images/bg-patent-review.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   `;
 const Container = styled.div`
+
+  .status {
+    position: absolute;
+    left: 0;
+    top: 5rem;
+    transform: translateX(-10rem);
+  }
+
   max-width: 724px;
   margin-inline: auto;
   width: 100%;
@@ -32,7 +41,7 @@ const FileContainer = styled.div`
   border-radius: 8px;
   box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.05);
   padding: 2rem;
-  width: 100%;
+  width: 60rem;
   height: 100%;
 
   input[type="file"] {
@@ -49,7 +58,7 @@ const FileContainer = styled.div`
     border-radius: 4px;
     font-size: 12px;
     font-weight: 500;
-    padding: 1.7rem 20rem;
+    padding: 1.7rem 7rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -98,7 +107,7 @@ const ButtonContainer = styled.div`
 
 const StyledDiv = styled.div`
   display: flex;
-  align-self: flex-start;
+  width: 60rem;
   margin-top: 1rem;
   font-weight: 600;
   color: rgba(246, 0, 0, 0.80);
@@ -122,11 +131,12 @@ export default function ReviewLastPage() {
   return (
     <Section>
       <Container>
+        <img className="status" src="/images/status-4.png" alt="4" />
         <Heading step="CONFIRM" strong="" text="추가 제출할 파일이 있다면 첨부해 주세요!" description="파일이 없으시면 검토 신청서만 마지막으로 확인해주세요 :)" />
         {!modal ? (
           <>
             <FileContainer>
-              <Title keywordName="파일 첨부" toggle={toggle} setToggle={setToggle} />
+              <Title keywordData={FILE_VALUE} toggle={toggle} setToggle={setToggle} />
               {toggle && (
                 <FileInput
                   submitedFileName={submitedFileName}
@@ -136,7 +146,7 @@ export default function ReviewLastPage() {
               )}
             </FileContainer>
             <StyledDiv>
-              * 해당 페이지에서 벗어나면 업로드 한 파일이 사라지니 주의해주세요!
+              * 이전 페이지로 돌아가면 업로드 한 파일이 사라지니 주의해주세요!
             </StyledDiv>
             <ButtonContainer>
               <button type="button" onClick={handleConfirm}>
@@ -150,7 +160,7 @@ export default function ReviewLastPage() {
             handleConfirm={handleConfirm}
           />
         )}
-        <MoveButton type="button" link="patent-review/complete" disabled={false} />
+        <MoveButton type="button" link="/patent-review/complete" disabled={false} />
       </Container>
     </Section>
   );

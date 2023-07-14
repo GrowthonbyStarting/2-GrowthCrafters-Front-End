@@ -43,9 +43,9 @@ export default function Input({ keywordName, onChange, value }: {
 
   return (
     <Container toggle={toggle}>
-      <Title keywordName={keywordData.title} toggle={toggle} setToggle={setToggle} />
+      <Title keywordData={keywordData} toggle={toggle} setToggle={setToggle} />
       <InputContainer>
-        {(toggle && keywordName !== '파일 첨부') && (
+        {toggle && (
           <textarea
             placeholder={keywordData.placeholder}
             onChange={onChange}

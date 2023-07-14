@@ -12,6 +12,7 @@ const Container = styled.div<ContainerProps>`
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.05);
 
   ${(props) => props.active && css`
     border: 2px solid ${props.theme.colors.primary};

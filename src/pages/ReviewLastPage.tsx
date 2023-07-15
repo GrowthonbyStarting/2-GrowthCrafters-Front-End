@@ -1,14 +1,17 @@
 import { styled } from 'styled-components';
+
 import { useState } from 'react';
-import { useSetRecoilState } from 'recoil';
 import { useNavigate } from 'react-router-dom';
+
 import Heading from '../components/common/Heading';
 import Title from '../components/form/Title';
 import FileInput from '../components/confirm/FileInput';
 import ConfirmForm from '../components/confirm/ConfirmForm';
-import MoveButton from '../components/common/MoveButton';
+import SubmitButton from '../components/confirm/SubmitButton';
+
 import { FILE_VALUE } from '../constants/keyword';
-import { reviewFileState } from '../recoil/atom';
+
+import useFetchForm from '../hook/useFetchForm';
 
 const Section = styled.section`
   width: 100%;
@@ -17,9 +20,9 @@ const Section = styled.section`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  `;
-const Container = styled.div`
+`;
 
+const Container = styled.div`
   .status {
     position: absolute;
     left: 0;
@@ -119,11 +122,19 @@ const StyledDiv = styled.div`
 
 export default function ReviewLastPage() {
   const [submitedFileName, setSubmitedFileName] = useState('');
-  const setReviewFile = useSetRecoilState(reviewFileState);
+  const [file, setFile] = useState<File | null>(null);
   const [modal, setModal] = useState(false);
   const [toggle, setToggle] = useState(true);
+  const navigate = useNavigate();
 
   const handleConfirm = () => {
+    const category = (window.sessionStorage.getItem('category') || '');
+    if (category === '') {
+      // eslint-disable-next-line no-alert
+      alert('특허 등록 가능성 검토 신청서가 이미 제출되었어요! 홈 화면으로 이동합니다 :)');
+      navigate('/');
+      return;
+    }
     if (!modal) {
       setModal(true);
       return;
@@ -131,7 +142,18 @@ export default function ReviewLastPage() {
     setModal(false);
   };
 
-  // eslint-disable-next-line consistent-return
+  const handleSubmit = () => {
+    if (!file) {
+      useFetchForm();
+      navigate('/patent-review/complete');
+      sessionStorage.clear();
+      return;
+    }
+    useFetchForm(file);
+    navigate('/patent-review/complete');
+    sessionStorage.clear();
+  };
+
   return (
     <Section>
       <Container>
@@ -144,7 +166,7 @@ export default function ReviewLastPage() {
               {toggle && (
                 <FileInput
                   submitedFileName={submitedFileName}
-                  setReviewFile={setReviewFile}
+                  setFile={setFile}
                   setSubmitedFileName={setSubmitedFileName}
                 />
               )}
@@ -164,7 +186,7 @@ export default function ReviewLastPage() {
             handleConfirm={handleConfirm}
           />
         )}
-        <MoveButton type="button" link="/patent-review/complete" disabled={false} />
+        <SubmitButton handleSubmit={handleSubmit} />
       </Container>
     </Section>
   );

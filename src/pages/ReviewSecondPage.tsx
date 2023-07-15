@@ -1,9 +1,10 @@
 import { styled } from 'styled-components';
-import { useState } from 'react';
+
 import { useSessionStorage } from 'usehooks-ts';
+
 import Heading from '../components/common/Heading';
-import MoveButton from '../components/common/MoveButton';
 import Category from '../components/patent-review/Category';
+import MoveButton from '../components/common/MoveButton';
 
 const Section = styled.section`
   width: 100%;

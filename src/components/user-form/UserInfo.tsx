@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { Controller } from 'react-hook-form';
+import { Control, Controller } from 'react-hook-form';
 import { userInfo } from '../../types/inputForm';
 import Input from './Input';
 import USER_INFO_INPUT from '../../constants/userInfoForm';
@@ -15,12 +15,14 @@ const Container = styled.div`
   box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.05);
 `;
 
+type NameType = '이름' | '이메일' | '전화번호';
+
 export default function UserInfo({ control, userInfoObj }: {
-  control: any;
+  control: Control<userInfo>;
   userInfoObj: userInfo;
 }) {
   const userInfoValue = Object.values(userInfoObj);
-  const userInfoKey = Object.keys(userInfoObj);
+  const userInfoKey: NameType[] = Object.keys(userInfoObj) as NameType[];
   return (
     <Container>
       {userInfoKey.map((name, index) => {

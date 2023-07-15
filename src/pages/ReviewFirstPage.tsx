@@ -5,7 +5,6 @@ import UserInfoForm from '../components/user-form/UserInfoForm';
 const Section = styled.section`
   width: 100%;
   height: 93vh;
-  /* max-height: 540px; */
   background-image: url('/images/bg-patent-review.png');
   background-size: cover;
   background-position: center;

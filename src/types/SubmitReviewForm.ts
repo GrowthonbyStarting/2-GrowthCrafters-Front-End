@@ -8,7 +8,7 @@ export interface SubmitReviewForm {
   q3: string,
   q4: string,
   q5: string,
-  file: FormData,
+  file?: File,
 }
 
 export type Category = 'electron' | 'machinery' | 'chemistry' | 'bio' | 'etc';

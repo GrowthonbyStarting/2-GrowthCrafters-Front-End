@@ -3,6 +3,7 @@ import { styled } from 'styled-components';
 import { KEYWORD, keyword } from '../../constants/keyword';
 
 import Keyword from './Keyword';
+import { InputFormName } from '../../types/inputForm';
 
 const Container = styled.div`
   display: flex;
@@ -31,8 +32,8 @@ const SideBar = styled.div`
   `;
 
 export default function LeftSideBar({ keywordList, setKeywordList }: {
-  keywordList: string[];
-  setKeywordList: (value: string[]) => void;
+  keywordList: InputFormName[];
+  setKeywordList: (value: InputFormName[]) => void;
 }) {
   return (
     <Container>

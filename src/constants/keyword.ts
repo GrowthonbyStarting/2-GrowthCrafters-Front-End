@@ -1,5 +1,7 @@
+import { InputFormName } from '../types/inputForm';
+
 export interface keyword {
-  name: string;
+  name: InputFormName;
   id: string;
   required: boolean;
   title: string;
@@ -44,7 +46,15 @@ export const KEYWORD: Record<string, keyword> = {
   },
 };
 
-export const FILE_VALUE:keyword = {
+export type FileData = {
+  name: '파일 첨부';
+  id: string;
+  required: boolean;
+  title: string;
+  placeholder: string;
+}
+
+export const FILE_VALUE: FileData = {
   name: '파일 첨부',
   id: 'formData',
   required: false,

@@ -1,5 +1,5 @@
 import { css, styled } from 'styled-components';
-import { keyword } from '../../constants/keyword';
+import { FileData, keyword } from '../../constants/keyword';
 
 type Props = {
   toggle: boolean;
@@ -57,7 +57,7 @@ const TitleContainer = styled.div<Props>`
 `;
 
 export default function Title({ keywordData, toggle, setToggle }: {
-  keywordData: keyword;
+  keywordData: keyword | FileData;
   toggle: boolean;
   setToggle: (value: boolean) => void;
 }) {

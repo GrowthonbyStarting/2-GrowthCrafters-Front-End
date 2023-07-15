@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { useLocation } from 'react-router-dom';
+
 import Heading from '../components/common/Heading';
 import InputForm from '../components/form/InputForm';
 
@@ -11,7 +11,7 @@ const Section = styled.section`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  `;
+`;
 
 const Container = styled.div`
   .status {
@@ -20,6 +20,7 @@ const Container = styled.div`
     top: 5rem;
     transform: translateX(-10rem);
   }
+  
   max-width: 724px;
   margin-inline: auto;
   width: 100%;

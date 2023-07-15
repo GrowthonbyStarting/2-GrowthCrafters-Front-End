@@ -1,9 +1,9 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { Controller } from 'react-hook-form';
+import { Control, Controller } from 'react-hook-form';
 import { styled } from 'styled-components';
 import Input from './Input';
 import { KEYWORD } from '../../constants/keyword';
-import { inputForm } from '../../types/inputForm';
+import { InputFormName, inputForm } from '../../types/inputForm';
 
 const Container = styled.div`
   display: flex;
@@ -24,19 +24,19 @@ const Container = styled.div`
 
 export default function RightInputForm({ reviewInput, keywordList, control }: {
   reviewInput: inputForm;
-  keywordList: string[];
-  control: any;
+  keywordList: InputFormName[];
+  control: Control<inputForm>;
 }) {
   const reviewInputArr = Object.values(reviewInput);
   return (
     <Container>
-      {keywordList.map((keywordName: string, index) => (
+      {keywordList.map((keywordName, index) => (
         <Controller
           key={keywordName}
           control={control}
           defaultValue={reviewInputArr[index]}
           name={keywordName}
-          render={({ field: { onChange, value } }) => (
+          render={({ field: { onChange, value = '' } }) => (
             <Input keywordName={keywordName} onChange={onChange} value={value} />
           )}
         />

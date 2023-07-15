@@ -1,6 +1,7 @@
 import { css, styled } from 'styled-components';
 import { useState } from 'react';
 import { keyword } from '../../constants/keyword';
+import { InputFormName } from '../../types/inputForm';
 
 type ContainerProps = {
   active: boolean;
@@ -50,8 +51,8 @@ const Container = styled.div<ContainerProps>`
 
 export default function Keyword({ data, keywordList, setKeywordList }: {
   data: keyword;
-  keywordList: string[];
-  setKeywordList: (value: string[]) => void
+  keywordList: InputFormName[];
+  setKeywordList: (value: InputFormName[]) => void
 }) {
   const [active, setActive] = useState(data.required);
 

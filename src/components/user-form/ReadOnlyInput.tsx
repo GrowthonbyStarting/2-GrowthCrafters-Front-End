@@ -1,5 +1,4 @@
 import { styled } from 'styled-components';
-import { Property } from '../../constants/userInfoForm';
 
 const Container = styled.div`
   display: flex;

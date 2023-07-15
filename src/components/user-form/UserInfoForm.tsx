@@ -1,9 +1,13 @@
+import { styled } from 'styled-components';
 import { useForm } from 'react-hook-form';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { styled } from 'styled-components';
 import { useSessionStorage } from 'usehooks-ts';
-import MoveButton from '../common/MoveButton';
+
 import UserInfo from './UserInfo';
+
+import MoveButton from '../common/MoveButton';
+
+import { userInfo } from '../../types/inputForm';
 
 const Container = styled.form`
   display: flex;
@@ -17,12 +21,12 @@ export default function UserInfoForm() {
   const link = `${location.pathname}/category`;
   const navigate = useNavigate();
 
-  const { handleSubmit, control } = useForm();
-  const [userInfoObj, setUserInfoObj] = useSessionStorage('user-info', {
+  const { handleSubmit, control } = useForm<userInfo>();
+  const [userInfoObj, setUserInfoObj] = useSessionStorage<userInfo>('user-info', {
     이름: '', 이메일: '', 전화번호: '',
   });
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data:userInfo) => {
     setUserInfoObj(data);
     navigate(`${link}`);
   };

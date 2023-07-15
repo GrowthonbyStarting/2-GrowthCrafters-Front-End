@@ -1,13 +1,14 @@
 import { styled } from 'styled-components';
 import { useState } from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { useSessionStorage } from 'usehooks-ts';
-import MoveButton from '../common/MoveButton';
+
 import LeftSideBar from './LeftSideBar';
 import RightInputForm from './RightInputForm';
+
+import MoveButton from '../common/MoveButton';
+import { InputFormName, inputForm } from '../../types/inputForm';
 
 const Container = styled.form`
   padding-bottom: 2rem;
@@ -22,14 +23,14 @@ const FormContainer = styled.div`
 `;
 
 export default function InputForm() {
-  const { handleSubmit, control } = useForm();
-  const [keywordList, setKeywordList] = useState(['명칭', '특징']);
-  const [reviewInput, setReviewInput] = useSessionStorage('review-input', {
+  const { handleSubmit, control } = useForm<inputForm>();
+  const [keywordList, setKeywordList] = useState<InputFormName[]>(['명칭', '특징']);
+  const [reviewInput, setReviewInput] = useSessionStorage<inputForm>('review-input', {
     명칭: '', 특징: '', 차별점: '', 효과: '', 기술: '',
   });
   const navigate = useNavigate();
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: inputForm) => {
     setReviewInput(data);
     navigate('/patent-review/confirm');
   };

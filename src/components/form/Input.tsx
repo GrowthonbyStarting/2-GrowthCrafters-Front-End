@@ -33,9 +33,9 @@ const InputContainer = styled.div`
   }
 `;
 
-export default function Input({ keywordName, onChange, value }: {
+export default function Input({ keywordName, onChange, value = '' }: {
   keywordName: string;
-  value: any;
+  value: string;
   onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void ;
 }) {
   const keywordData = KEYWORD[`${keywordName}`];

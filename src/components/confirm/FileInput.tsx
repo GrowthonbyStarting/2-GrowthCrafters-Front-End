@@ -1,21 +1,19 @@
 import { FILE_PLACEHOLDER } from '../../constants/keyword';
 
-export default function FileInput({ submitedFileName, setReviewFile, setSubmitedFileName }:{
+export default function FileInput({ submitedFileName, setFile, setSubmitedFileName }:{
   submitedFileName: string;
-  setReviewFile: (value) => void;
+  setFile: (value: File) => void;
   setSubmitedFileName: (value: string) => void;
 }) {
-  const handleFileChange = (e: any) => {
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
-    const formData = new FormData();
 
     if (e.target.files) {
       const uploadFile = e.target.files[0];
-      formData.append('file', uploadFile);
-      setReviewFile(uploadFile);
+      setFile(uploadFile);
     }
-    const fileName = e.target.value;
-    setSubmitedFileName(fileName.split('\\').pop());
+    const fileName = e.target.value.split('\\').pop() as string;
+    setSubmitedFileName(fileName);
   };
   return (
     <div>
@@ -25,7 +23,6 @@ export default function FileInput({ submitedFileName, setReviewFile, setSubmited
         <input
           type="file"
           id="file-upload"
-          // eslint-disable-next-line max-len
           onChange={(e) => handleFileChange(e)}
           multiple
         />

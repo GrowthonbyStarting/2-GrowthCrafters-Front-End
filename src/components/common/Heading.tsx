@@ -18,6 +18,9 @@ const HeadingContainer = styled.div`
     display: flex;
     font-size: 2.4rem;
     font-weight: bold;
+    @media screen and (max-width: 768px){
+      font-size: 2rem;
+    }
 
     strong {
       color: ${(props) => props.theme.colors.primary};

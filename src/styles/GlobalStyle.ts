@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
   
   html {
     box-sizing: border-box;
+    word-break: keep-all;
   }
 
   *,

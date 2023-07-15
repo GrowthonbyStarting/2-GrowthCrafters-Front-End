@@ -4,10 +4,16 @@ import CategoryButton from './CategoryButton';
 const CategoryContainer = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  margin-top: 2rem;
-  margin-bottom: 20rem;
+  justify-content: center;
+  margin-top: 6rem;
+  margin-bottom: 15rem;
   flex-wrap: wrap;
+
+  @media screen and (max-width: 768px) {
+    margin-top: 0;
+    margin-bottom: 10rem;
+    padding: 2rem;
+  }
 `;
 
 export default function Category({ category, setCategory }:{

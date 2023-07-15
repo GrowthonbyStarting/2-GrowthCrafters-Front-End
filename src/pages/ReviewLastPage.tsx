@@ -20,14 +20,35 @@ const Section = styled.section`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  padding-top: 3.8rem;
 `;
 
 const Container = styled.div`
-  .status {
+  .wide {
     position: absolute;
     left: 0;
     top: 5rem;
     transform: translateX(-10rem);
+  }
+
+  .narrow {
+    display: none;
+    @media screen and (max-width: 768px){
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-inline: auto;
+      width: 300px;
+      height: auto;
+      padding-top: 3rem;
+
+      img {
+        display: flex;
+        object-fit: contain;
+        width: 37rem;
+        height: 5rem;
+      }
+    }
   }
 
   max-width: 724px;
@@ -39,6 +60,9 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media screen and (max-width: 768px){
+    padding: 1.5rem;
+  }
 `;
 
 const FileContainer = styled.div`
@@ -49,6 +73,9 @@ const FileContainer = styled.div`
   padding: 2rem;
   width: 60rem;
   height: 100%;
+  @media screen and (max-width: 768px){
+    width: 100%;
+  }
 
   input[type="file"] {
     display: none;
@@ -118,6 +145,9 @@ const StyledDiv = styled.div`
   font-weight: 600;
   color: rgba(246, 0, 0, 0.80);
   font-size: 1rem;
+  @media screen and (max-width: 768px){
+    width: 100%;
+  }
 `;
 
 export default function ReviewLastPage() {
@@ -157,8 +187,11 @@ export default function ReviewLastPage() {
   return (
     <Section>
       <Container>
-        <img className="status" src="/images/status-4.png" alt="4" />
+        <img className="wide" src="/images/status-4.png" alt="4" />
         <Heading step="CONFIRM" strong="" text="추가 제출할 파일이 있다면 첨부해 주세요!" description="파일이 없으시면 검토 신청서만 마지막으로 확인해주세요 :)" />
+        <div className="narrow">
+          <img src="/images/status4-x.png" alt="status" />
+        </div>
         {!modal ? (
           <>
             <FileContainer>

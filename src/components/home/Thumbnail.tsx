@@ -4,9 +4,15 @@ const ThumbnailContainer = styled.div`
   background-image: url('/images/bg1-mainback.png');
   background-size: contain;
   background-repeat: repeat-x;
-  height: 90vh;
+  height: 100%;
   max-height: 64rem;
 
+  @media screen and (max-width: 768px){
+    background-image: contain;
+    width: 100%;
+    height: 100%;
+  }
+  
   
   div:first-child {
     max-width: 1024px;
@@ -21,6 +27,13 @@ const ThumbnailContainer = styled.div`
     padding-top: 10rem;
     align-items: center;
     position: relative;
+
+    @media screen and (max-width: 768px){
+      width: 100%;
+      padding-top: 5rem;
+      background-size: contain;
+    }
+    
     
     h1 {
       display: flex;
@@ -29,12 +42,22 @@ const ThumbnailContainer = styled.div`
       color: #FFF;
       text-align: center;
       margin-bottom: 1.5rem;
+      @media screen and (max-width: 768px){
+        font-size: 2.5rem; 
+        margin-bottom: 1rem;
+      }
     }
   
     img {
       display: flex;
+      width: 23.6rem;
+      height: 7.7rem;
+      @media screen and (max-width: 768px){
+        width: 13rem;
+        height: auto;
+      }
     }
-
+    
     div {
       display: flex;
       flex-direction: row;
@@ -46,14 +69,21 @@ const ThumbnailContainer = styled.div`
       
       img {
         display: flex;
+        width: 20rem;
+        height: auto;
         max-width: 48rem;
         max-height: 35rem;
+        @media screen and (max-width: 768px){
+        width: 10rem;
+        height: auto;
+        }
       }
 
       a {
         img {
           position: absolute;
           top: 0;
+          transform: translate(-20px);
         }
       }
     }

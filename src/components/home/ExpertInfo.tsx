@@ -22,11 +22,17 @@ const Container = styled.div`
     align-items: center;
     background-color: #fff;
     width: 19rem;
-    height: 6.4rem;
+    height: 15rem;
     border-radius: 3.2rem;
     color: ${(props) => props.theme.colors.primary};
     font-size: 2.8rem;
     font-weight: 700;
+
+    @media screen and (max-width: 768px){
+      font-size: 1.8rem;
+      width: 13rem;
+      height: 8rem;
+    }
 
     img {
       background-color: ${(props) => props.theme.colors.primary};
@@ -36,9 +42,12 @@ const Container = styled.div`
       object-fit: none;
       position: absolute;
       transform: translateX(9rem) translateY(-3rem);
+      @media screen and (max-width: 768px){
+        transform: translateX(7rem) translateY(-2rem);
+      }
     }
   }
-
+  
   .text {
     margin-top: 3rem;
     display: flex;
@@ -46,14 +55,25 @@ const Container = styled.div`
     font-weight: 700;
     letter-spacing: -0.4px;
     flex-direction: column;
+
+    br {
+      height: 0;
+    }
+    
+    @media screen and (max-width: 768px){
+      font-size: 1.4rem;
+      text-align: center;
+      line-height: 2.5rem;
+      padding-inline: 3rem;
+    }
+
     span{
-      display: flex;
       strong {
         color: ${(props) => props.theme.colors.primary};
       }
     }
   }
-
+  
   .god {
     display: flex;
     justify-content: center;
@@ -63,14 +83,25 @@ const Container = styled.div`
     img {
       width: 32rem;
       height: 22rem;
+      @media screen and (max-width: 768px){
+        width: 20rem;
+        height:auto;
+      }
     }
     
     a {
       position: absolute;
       transform: translateX(25rem) translateY(-1rem);
+      @media screen and (max-width: 768px){
+        transform: translateX(13rem) translateY(-1rem);
+      }
       img {
         width: 30rem;
         height: auto;
+        @media screen and (max-width: 768px){
+        width: 15rem;
+        height:auto;
+      }
       }
     }
   }

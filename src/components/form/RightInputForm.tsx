@@ -2,7 +2,6 @@
 import { Control, Controller } from 'react-hook-form';
 import { styled } from 'styled-components';
 import Input from './Input';
-import { KEYWORD } from '../../constants/keyword';
 import { InputFormName, inputForm } from '../../types/inputForm';
 
 const Container = styled.div`
@@ -16,6 +15,11 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.05);
+
+  @media screen and (max-width: 768px){
+    width: 100%;
+    min-height: 100%;
+  }
 
   div:last-child {
     border: none;

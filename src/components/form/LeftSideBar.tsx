@@ -17,7 +17,8 @@ const Container = styled.div`
     font-size: 3px;
     letter-spacing: -0.16px;
     color: rgba(246, 0, 0, 0.8);
-  }
+    margin-bottom: 1rem;
+   }
 `;
 
 const SideBar = styled.div`
@@ -29,7 +30,14 @@ const SideBar = styled.div`
   border-radius: 8px;
   margin-right: .8rem;;
   font-weight: normal;
-  `;
+  @media screen and (max-width: 768px){
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+`;
 
 export default function LeftSideBar({ keywordList, setKeywordList }: {
   keywordList: InputFormName[];

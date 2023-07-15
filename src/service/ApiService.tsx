@@ -14,7 +14,9 @@ class ApiService {
     };
 
     const formData = new FormData();
-    if (file) {
+    if (!file) {
+      formData.append('attachment', '');
+    } else {
       formData.append('attachment', file);
     }
 

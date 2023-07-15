@@ -8,6 +8,10 @@ const Container = styled.div`
 
   height: 187rem;
   width: 100%;
+  @media screen and (max-width: 768px){
+    width: 100%;
+    height: auto;
+  }
 
   div {
     display: flex;
@@ -22,6 +26,12 @@ const Container = styled.div`
       display: flex;
       margin-top: 10rem;
       height: 174rem;
+      @media screen and (max-width: 768px){
+        width: 100%;
+        object-fit: contain;
+        height: 100%;
+        margin-bottom: 1.5rem;
+    }
     }
   }
 `;

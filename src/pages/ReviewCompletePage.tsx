@@ -29,6 +29,10 @@ const Container = styled.div`
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.05);
+    @media screen and (max-width: 768px){
+      width: 90%;
+      margin-top: 7vh;
+    }
     
     img:nth-of-type(1) {
       width: 8rem;
@@ -43,6 +47,10 @@ const Container = styled.div`
       bottom: 0;
       width: 50vh;
       height: 50vh;
+      @media screen and (max-width: 768px){
+        width: 40vh;
+        height: 45vh;
+      }
     }
 
     h2 {
@@ -51,6 +59,9 @@ const Container = styled.div`
       line-height: 150.836%;
       padding-top: 7vh; 
       margin-bottom: 2vh;
+      @media screen and (max-width: 768px){
+        font-size: 2vh;
+      }
 
       strong {
         color: ${(props) => props.theme.colors.primary};

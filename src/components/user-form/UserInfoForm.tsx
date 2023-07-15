@@ -13,7 +13,7 @@ const Container = styled.form`
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-top: 1.4rem;
+  margin-top: 3rem;
 `;
 
 export default function UserInfoForm() {

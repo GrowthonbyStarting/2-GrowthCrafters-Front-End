@@ -2,43 +2,50 @@ import { styled } from 'styled-components';
 
 const Container = styled.div`
   width: 100%;
-  height: 21rem;
+  height: 100%;
   display: flex;
+  flex-wrap: wrap;
   margin-top: 5.7rem;
   justify-content: center;
-
+  @media screen and (max-width: 768px){
+    margin-top: 3rem;
+  }
+  
   a {
     width: 18rem;
     height: 20rem;
     text-decoration: none;
     position: relative;
     margin-right: 1.6rem;
-
+    
     img {
       width: 100%;
       height: 100%;
     }
     span {
-      strong{
-        display: block;
+      strong {
         font-size: 1.5rem;
+        @media screen and (max-width: 768px){
+          font-size: 1.2rem;
+        }
       }
-      display: block;
       position: absolute;
       left: 6rem;
       bottom: 2rem;
       font-weight: 700;
       text-align: center;
-      line-height: 1rem;
+      line-height: 1.4rem;
       font-size: 1.2rem;
       color: #fff;
-
-      strong {
-        
+      @media screen and (max-width: 768px){
+        left: 7rem;
+        font-size: 1rem;
+        line-height: 1.5rem;
       }
+
     }
   }
-`;
+  `;
 
 export default function Carousel() {
   return (

@@ -10,6 +10,10 @@ const ConfirmFormContainer = styled.div`
   margin-top: 1.3rem;
   margin-bottom: 10rem;
   align-items: center;
+  @media screen and (max-width: 768px){
+    width: 100%; 
+    margin-bottom: 5rem;
+  }
 `;
 
 const Header = styled.div`
@@ -31,6 +35,10 @@ const Header = styled.div`
   font-size: 1.6rem;
   font-weight: 700;
 
+  @media screen and (max-width: 768px){
+    width: 100%;
+  }
+
 `;
 
 const Form = styled.div`
@@ -47,6 +55,9 @@ const Form = styled.div`
     color: #2E78F5;
     font-size: 1.8rem;
     font-weight: 700;
+    @media screen and (max-width: 768px){
+      font-size: 1.6rem;
+    }
   }
 `;
 

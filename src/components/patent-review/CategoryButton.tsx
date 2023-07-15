@@ -13,6 +13,11 @@ const Container = styled.div<ContainerProps>`
   justify-content: center;
   align-items: center;
   box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.05);
+  margin: 1rem;
+  @media screen and (max-width: 768px) {
+    width: 10rem;
+    height: 10rem;
+  }
 
   ${(props) => props.active && css`
     border: 2px solid ${props.theme.colors.primary};
@@ -27,6 +32,9 @@ const Container = styled.div<ContainerProps>`
     display: flex;
     flex-direction: column;
     align-items: center;
+    @media screen and (max-width: 768px) {
+      padding: 1rem;
+    }
   
   img {
     display: flex;
@@ -40,7 +48,9 @@ const Container = styled.div<ContainerProps>`
     font-family: 'Pretendard';
     font-weight: bold;
     font-size: 1.7rem;
-
+    @media screen and (max-width: 768px) {
+      font-size: 1.5rem;
+    }
     ${(props) => props.active && css`
       color: ${props.theme.colors.primary};
     `}

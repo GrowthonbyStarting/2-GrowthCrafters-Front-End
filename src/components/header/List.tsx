@@ -21,17 +21,18 @@ const Container = styled.div<ContainerProps>`
 `;
 
 export default function List({
-  path, text,
+  path, text, setActive,
 }: {
   path: string;
   text: string;
+  setActive: (value: boolean) => void;
 }) {
   const location = useLocation();
 
   return (
     <Container active={location.pathname.includes(path)}>
       <li>
-        <Link to={path}>{text}</Link>
+        <Link to={path} onClick={() => setActive(false)}>{text}</Link>
       </li>
     </Container>
   );

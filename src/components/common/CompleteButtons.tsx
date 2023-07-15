@@ -12,15 +12,16 @@ const Container = styled.div`
   a {
     cursor: pointer;
     text-decoration: none;
-    width: 30vh;
-    height: 5vh;
+    width: 40vh;
+    height: 6vh;
     margin: 2vh;
     border-radius: 8px;
     display: flex;
+    text-align: center;
     padding: 1vh 2vh;
     justify-content: space-evenly;
     align-items: center;
-    font-size: 1%.8;
+    font-size: 1.8rem;
     font-weight: 600;
     color: #fff;
     background: ${(props) => props.theme.colors.primary};

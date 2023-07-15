@@ -12,6 +12,9 @@ import { InputFormName, inputForm } from '../../types/inputForm';
 
 const Container = styled.form`
   padding-bottom: 2rem;
+  @media screen and (max-width: 768px){
+    padding-inline: 1rem;
+  }
 `;
 
 const FormContainer = styled.div`
@@ -20,6 +23,9 @@ const FormContainer = styled.div`
   flex-direction: row;
   margin-top: 1.4rem;
   margin-bottom: 2.8rem;
+  @media screen and (max-width: 768px){
+    flex-direction: column;
+  }
 `;
 
 export default function InputForm() {

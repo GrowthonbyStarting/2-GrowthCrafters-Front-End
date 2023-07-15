@@ -13,6 +13,12 @@ const Container = styled.div`
   border-radius: 8px;
   min-height: 35rem;
   box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.05);
+
+  @media screen and (max-width: 768px){
+    width: 90%;
+    height: auto;
+    min-height: auto;
+  }
 `;
 
 type NameType = '이름' | '이메일' | '전화번호';

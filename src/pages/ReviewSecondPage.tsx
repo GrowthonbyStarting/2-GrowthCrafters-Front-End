@@ -16,19 +16,45 @@ const Section = styled.section`
 `;
 
 const Container = styled.div`
-  .status {
+  .wide {
     position: absolute;
     left: 0;
     top: 5rem;
     transform: translateX(-10rem);
+  }
+
+  .narrow {
+    display: none;
+    @media screen and (max-width: 768px){
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-inline: auto;
+      width: 300px;
+      height: auto;
+      padding-top: 3rem;
+
+      img {
+        display: flex;
+        object-fit: contain;
+        width: 37rem;
+        height: 5rem;
+      }
+    }
   }
   
   .god {
     position: absolute;
     bottom: 0;
     right: 0;
-    transform: translateY(40vh) translateX(10vh);
+    transform: translateY(28vh);
     opacity: 50%;
+    width: 20rem;
+    height: 32rem;
+
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
   }
 
   max-width: 724px;
@@ -45,8 +71,11 @@ export default function ReviewSecondPage() {
   return (
     <Section>
       <Container>
-        <img className="status" src="/images/status-2.png" alt="2" />
+        <img className="wide" src="/images/status-2.png" alt="2" />
         <Heading step="STEP2" strong="어떤 분야" text="의 아이디어인가요?" description="대략적인 큰 카테고리를 선택 해주세요!" />
+        <div className="narrow">
+          <img src="/images/status2-x.png" alt="status" />
+        </div>
         <Category category={selectedCategory} setCategory={setSelectedCategory} />
         <MoveButton type="button" link={link} disabled={selectedCategory === ''} />
         <img className="god" src="/images/god1.svg" alt="god" />

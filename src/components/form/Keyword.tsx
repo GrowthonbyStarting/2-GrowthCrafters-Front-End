@@ -12,6 +12,9 @@ const Container = styled.div<ContainerProps>`
   flex-direction: row;
   align-items: center;
   padding: 2rem 3.7rem .2rem 2rem;
+  @media screen and (max-width: 768px){
+    padding: 1.5rem;
+  }
 
   button {
     cursor: pointer;

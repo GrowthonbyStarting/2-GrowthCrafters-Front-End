@@ -12,6 +12,9 @@ const PromotionText = styled.div`
   padding-top: 5.4rem;
   padding-bottom: 8.7rem;
   justify-content: space-around;
+  @media screen and (max-width: 768px){
+    padding-block: 3.5rem;
+  }
 
   div:first-child {
     display: flex;
@@ -20,18 +23,26 @@ const PromotionText = styled.div`
     width: 4rem;
     height: 4rem;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
+    @media screen and (max-width: 768px){
+      width: 3.5rem;
+      height: 3.5rem;
+      margin-bottom: 1.5rem;
+    }
   }
 
   div:last-child {
     display: flex;
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: 600;
     font-stretch: normal;
     font-style: normal;
     line-height: 1.6;
     text-align: center;
     color: #fff;
+    @media screen and (max-width: 768px){
+      font-size: 1.4rem;
+    }
   }
 `;
 

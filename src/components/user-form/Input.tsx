@@ -58,7 +58,7 @@ export default function Input({
           required
           type={data.type}
           value={value}
-          pattern={data.type === 'tel' ? '[0-9]{3}-[0-9]{4}-[0-9]{4}' : '.*'}
+          pattern={data.type === 'tel' ? '[0-9]{3}[0-9]{4}[0-9]{4}' : '.*'}
           onChange={onChange}
           placeholder={placeholder}
         />

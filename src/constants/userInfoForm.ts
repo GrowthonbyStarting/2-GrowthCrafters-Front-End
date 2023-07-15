@@ -17,7 +17,7 @@ const USER_INFO_INPUT: Record<string, Property> = {
   },
   전화번호: {
     koreanName: '전화번호',
-    placeholder: '전화번호를 입력하세요.  ex) 010-1234-5678',
+    placeholder: '전화번호를 입력하세요.  ex) 01012345678',
     type: 'tel',
   },
 };

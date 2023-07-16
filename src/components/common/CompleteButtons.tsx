@@ -25,6 +25,9 @@ const Container = styled.div`
     font-weight: 600;
     color: #fff;
     background: ${(props) => props.theme.colors.primary};
+    @media screen and (max-width: 768px){
+        font-size: 1.5rem;
+    }
   }
 `;
 

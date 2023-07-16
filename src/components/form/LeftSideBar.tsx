@@ -14,10 +14,13 @@ const Container = styled.div`
    span:last-child{
     margin-top: .8rem;
     display: flex;
-    font-size: 3px;
+    font-size: 1rem;
     letter-spacing: -0.16px;
     color: rgba(246, 0, 0, 0.8);
     margin-bottom: 1rem;
+    @media screen and (max-width: 768px){
+      font-size: 1.2rem;
+    }
    }
 `;
 

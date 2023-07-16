@@ -13,6 +13,9 @@ const Section = styled.section`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;  
+  @media screen and (max-width: 350px){
+    padding-bottom: 5rem;
+  }
 `;
 
 const Container = styled.div`

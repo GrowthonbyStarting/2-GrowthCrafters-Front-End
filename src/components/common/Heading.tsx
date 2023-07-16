@@ -7,6 +7,15 @@ const HeadingContainer = styled.div`
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
+  @media screen and (max-width: 350px){
+    padding-inline: .8rem;
+  }
+  div{
+    text-align: center;
+    @media screen and (max-width: 350px){
+      margin-bottom: 1rem;
+    }
+  }
 
   div:nth-of-type(1) {
     display: flex;
@@ -20,6 +29,9 @@ const HeadingContainer = styled.div`
     font-weight: bold;
     @media screen and (max-width: 768px){
       font-size: 2rem;
+    }
+    @media screen and (max-width: 350px){
+      font-size: 1.6rem;
     }
 
     strong {

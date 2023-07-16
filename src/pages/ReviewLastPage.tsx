@@ -95,6 +95,9 @@ const FileContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    @media screen and (max-width: 350px){
+      padding: 1.7rem 1rem;
+    }
 
     img {
       display: flex;
